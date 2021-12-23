@@ -1,17 +1,20 @@
 package vendingmachine.exception;
 
-public class ExceptionMessage {
+public enum ExceptionMessage {
 
-    private static String PREIFX = "[ERROR] ";
-    private static String NUMBER_FORMAT = "금액은 숫자여야 합니다.";
-    private static String NOT_ZERO = "0보다 큰 금액을 입력해주세요.";
+    NOT_ZERO("0보다 큰 금액을 입력해주세요."),
+    GREATER_HUNDRED("100원보다 큰 금액을 입력해주세요."),
+    TEN_UNIT("10원단위로 입력해주세요."),
+    PRICE_NUMBER_FORMAT("금액은 숫자이여야 합니다."),
+    AMOUNT_NUMBER_FORMAT("수량은 숫자이어야 합니다.");
 
-    public static String nonNumberFormat() {
-        return PREIFX + NUMBER_FORMAT;
+    private String message;
+
+    ExceptionMessage(String message) {
+        this.message = message;
     }
 
-    public static String nonZeroCoin() {
-        return PREIFX + NOT_ZERO;
+    public String getMessage() {
+        return "[ERROR] " + message;
     }
-
 }
