@@ -3,6 +3,8 @@ package vendingmachine.domain;
 public class Price {
 
     private static int ZERO = 0;
+    private static int MIN_PRICE = 100;
+    private static int PRICE_UNIT = 10;
 
     private int price;
 

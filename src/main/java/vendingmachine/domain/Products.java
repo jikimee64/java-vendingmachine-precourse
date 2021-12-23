@@ -1,10 +1,13 @@
 package vendingmachine.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Products {
 
-    List<Product> products = new ArrayList<>();
+    private List<Product> products;
+
+    public Products(final List<Product> products) {
+        this.products = products;
+    }
 
 }

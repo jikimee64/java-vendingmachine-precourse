@@ -16,9 +16,14 @@ public class InputView {
         return strToInt(Console.readLine());
     }
 
+    public static String getProductInventory(){
+        System.out.println(INPUT_PRODUCT_INVENTORY);
+        return Console.readLine();
+    }
+
     private static int strToInt(String str){
         if(!NumberUtils.isDigit(str)){
-            ExceptionMessage.nonNumberFormat();
+            throw new IllegalArgumentException(ExceptionMessage.PRICE_NUMBER_FORMAT.getMessage());
         }
         return Integer.parseInt(str);
     }

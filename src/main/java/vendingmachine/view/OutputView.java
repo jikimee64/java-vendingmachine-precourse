@@ -1,8 +1,8 @@
 package vendingmachine.view;
 
-import java.util.Map;
 import java.util.Map.Entry;
 import vendingmachine.domain.Coin;
+import vendingmachine.domain.Coins;
 
 public class OutputView {
 
@@ -11,9 +11,9 @@ public class OutputView {
     private static final String COUNT = "개";
     private static final String ONE = "원";
 
-    public static void printVendingMachineCoins(Map<Coin, Integer> coinMaps){
+    public static void printVendingMachineCoins(Coins coins){
         System.out.println(CONTAIN_COINS);
-        for (Entry<Coin, Integer> entry : coinMaps.entrySet()) {
+        for (Entry<Coin, Integer> entry : coins.getCoinMap().entrySet()) {
             System.out.println(entry.getKey().getPrice() + ONE + DASH + entry.getValue() + COUNT);
         }
     }
