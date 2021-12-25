@@ -20,14 +20,18 @@ class CoinsTest {
 
     @ParameterizedTest
     @ValueSource(ints = {450, 600, 1000})
-    void generateCoins(int machinePrice) {
+    void 랜덤_잔돈_생성(int machinePrice) {
+        //given
         int sum = 0;
+
+        //when
         Map<Coin, Integer> coinMap = coins.generateCoins(machinePrice);
 
         for (Entry<Coin, Integer> entry : coinMap.entrySet()) {
             sum += entry.getKey().getPrice() * entry.getValue();
         }
 
+        //then
         assertThat(sum).isEqualTo(machinePrice);
     }
 
