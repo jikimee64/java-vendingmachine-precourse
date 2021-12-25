@@ -1,10 +1,10 @@
 package vendingmachine.domain;
 
+import java.util.Objects;
+
 public class Price {
 
     private static int ZERO = 0;
-    private static int MIN_PRICE = 100;
-    private static int PRICE_UNIT = 10;
 
     private int price;
 
@@ -28,8 +28,40 @@ public class Price {
         return this.price / coin.getPrice();
     }
 
+    public Price plusPrice(int price){
+        return new Price(this.price + price);
+    }
+
+    public Price minusPrice(int price){
+        return new Price(this.price - price);
+    }
+
+    //TODO: 메소드명 변경
     public Price minusPrice(int randomNumber, Coin coin){
         return new Price(this.price - (randomNumber * coin.getPrice()));
     }
 
+    public boolean hasPriceLessThanProductPrice(Price hasPrice){
+        if(this.price > hasPrice.getPrice()){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Price price1 = (Price) o;
+        return price == price1.price;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(price);
+    }
 }

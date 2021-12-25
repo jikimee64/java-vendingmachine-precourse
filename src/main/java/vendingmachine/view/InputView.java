@@ -21,6 +21,11 @@ public class InputView {
         return Console.readLine();
     }
 
+    public static int getInputPrice(){
+        System.out.println(INPUT_PRICE);
+        return strToInt(Console.readLine());
+    }
+
     private static int strToInt(String str){
         if(!NumberUtils.isDigit(str)){
             throw new IllegalArgumentException(ExceptionMessage.PRICE_NUMBER_FORMAT.getMessage());

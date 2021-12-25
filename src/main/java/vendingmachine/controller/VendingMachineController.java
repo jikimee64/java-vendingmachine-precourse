@@ -5,8 +5,8 @@ import vendingmachine.domain.Coins;
 import vendingmachine.domain.Product;
 import vendingmachine.domain.Products;
 import vendingmachine.domain.VendingMachine;
-import vendingmachine.utils.Split;
 import vendingmachine.domain.strategy.RandomGenerate;
+import vendingmachine.utils.Split;
 import vendingmachine.view.InputView;
 import vendingmachine.view.OutputView;
 
@@ -17,8 +17,11 @@ public class VendingMachineController {
         OutputView.printVendingMachineCoins(coins);
 
         Products products = new Products(generateProductsOfVendingMachine());
+        int inputPrice = InputView.getInputPrice();
 
         VendingMachine vendingMachine = new VendingMachine(products, coins);
+        vendingMachine.inputPrice(inputPrice);
+
     }
 
     private Coins generateCoinsOfVendingMachine() {
